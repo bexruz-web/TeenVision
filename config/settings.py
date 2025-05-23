@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL')
+        default=os.getenv('DATABASE_URL', 'postgresql://postgres:sQJrxEcIAOlfVUyoGTLUkxchFsMDTvhE@maglev.proxy.rlwy.net:46870/railway')
     )
 }
 
