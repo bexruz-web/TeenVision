@@ -2,14 +2,12 @@ services:
   - type: web
     name: teenvision-backend
     env: python
-    buildCommand: ./manage.py collectstatic --no-input
+    buildCommand: python manage.py collectstatic --no-input
     startCommand: gunicorn config.wsgi:application
     envVars:
       - key: DEBUG
         sync: false
       - key: SECRET_KEY
-        sync: false
-      - key: ALLOWED_HOSTS
         sync: false
       - key: DATABASE_URL
         fromDatabase:
