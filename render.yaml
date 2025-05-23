@@ -2,7 +2,9 @@ services:
   - type: web
     name: teenvision-backend
     env: python
-    buildCommand: python manage.py collectstatic --no-input
+    buildCommand: |
+      python manage.py migrate --noinput
+      python manage.py collectstatic --no-input
     startCommand: gunicorn config.wsgi:application
     envVars:
       - key: DEBUG
